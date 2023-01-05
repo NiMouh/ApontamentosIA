@@ -330,4 +330,44 @@ amanhã meto prometo
 ```
 
 ## Alfa-Beta
-Amanhã acabo...
+
+Este é um método de corte que permite reduzir o número de nós a explorar no algoritmo minimax. Este método é baseado na
+seguinte ideia:
+
+- O **alfa** representa o **valor máximo** que o **maximizador** pode obter garantidamente (é inicializado com −∞).
+- O **beta** representa o **valor mínimo** que o **minimizador** pode obter garantidamente (é inicializado com +∞).
+- A ideia geral é cortar as ramificações que não precisam de ser exploradas, pois, já sabemos que não vão ser
+  escolhidas.
+- Em cada nó em que o alpha é maior ou igual ao beta, podemos cortar a árvore.
+
+### Algoritmo
+
+```python
+# Chamada inicial: minimax(raiz, PROFUNDIDADE, True, −∞, +∞)
+function minimax( node, depth, maximizing_player, alpha, beta):
+  if depth == 0 OR node is a terminal node
+    return f(node) #heuristic of “node”
+  if maximizing_player then
+    value = −∞
+    for each child of node do
+      value = max(value, minimax(child, depth − 1, FALSE, alpha, beta))
+      alpha = max(alpha, value)
+      if beta ≤ alpha
+        break
+    return value
+  else
+    value = +∞
+    for each child of node do
+      value = min(value, minimax( child, depth − 1, TRUE, alpha, beta) )
+      beta = min(beta, value)
+      if beta ≤ alpha
+        break
+    return value
+```
+
+### Exercício
+
+Considere a seguinte árvore e o algoritmo minimax com corte alfa-beta. Aplica o algoritmo minimax com corte alfa-beta
+para encontrar o valor da raiz.
+
+![](Imagens/estados-11.png)
