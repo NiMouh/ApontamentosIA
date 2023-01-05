@@ -267,6 +267,7 @@ Aqui contém um pseudocódigo para a pesquisa A<sup>*</sup>:
 
 Através do seguinte gráfico e do algoritmo A<sup>*</sup> encontra o caminho mais curto entre o nó A e o nó H.
 ![](Imagens/estados-6.png)
+
 Resolução:
 
 ```
@@ -275,3 +276,58 @@ amanhã meto prometo
 
 ## Parte 3: Antagonistas
 
+Neste capítulo vamos falar sobre os **antagonistas**. Estes são os **agentes que tentam impedir o agente principal** de
+atingir o seu objetivo. Nesta pesquisa (muito utilizado em I.A. de jogos) o nosso agente terá de encontrar
+aquela que será a melhor solução para ele (máximização) e simultaneamente tentar impedir que o adversário encontre a
+melhor solução para ele (minimização).
+
+## Minimax
+
+Este é o algoritmo mais simples para a resolução de problemas de antagonistas. Este algoritmo é baseado na seguinte
+ideia:
+
+- A **raiz** é o nó que representa o estado atual do jogo.
+- Os dois jogadores são chamados **maximizador** e **minimizador**.
+- O **maximizador** tenta obter o **valor máximo** possível.
+- O **minimizador** tenta obter o **valor mínimo** possível.
+- Assumimos que os dois jogadores jogam de forma **ótima**, logo é importante pensar sempre no pior cenário possível.
+
+### Exemplo com 4 níveis
+
+![](Imagens/estados-9.png)
+
+### Algoritmo
+
+```python
+# Chamada inicial: minimax(raiz, PROFUNDIDADE, True)
+function minimax( node, depth, maximizing_player):
+  if depth == 0 OR node is a terminal node
+    return f(node) # heurística do nó
+  if maximizing_player then: # Caso seja o maximizador a jogar
+    value = −∞
+    for each child of node do
+      value = max(value, minimax(child, depth − 1, FALSE))
+    return value
+  else: # Caso seja o minimizador a jogar
+    value = +∞
+    for each child of node do
+      value = min( value, minimax( child, depth − 1, TRUE ) )
+    return value
+```
+
+### Exercício
+
+Considere a seguinte árvore, onde os triangulos para cima representam o jogador 1 e os triangulos para baixo representam
+o jogador 2. O jogador 1 quer maximizar o valor e o jogador 2, quer minimizar o valor. Aplica o algoritmo minimax para
+encontrar o valor da raiz.
+
+![](Imagens/estados-10.png)
+
+Resolução:
+
+```
+amanhã meto prometo
+```
+
+## Alfa-Beta
+Amanhã acabo...
