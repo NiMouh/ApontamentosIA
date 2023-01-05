@@ -2,7 +2,7 @@
 
 ## Tipos de agentes de I.A.
 
-Existem duas perpetivas amplamente aceitas sobre sendo um agente de I.A.:
+Os dois agentes IA mais gerais são:
 
 - Artificial Narrow Intelligence (ANI): São agentes conseguem executar uma só tarefa
   de modo inteligente e melhor que um ser humano, porém são inuteís em outras tarefas (Weak AI).
@@ -105,7 +105,7 @@ def bfs(estado_inicial):
 
 ## Problemas de Pesquisa em Espaço de Estados
 
-Formalmente são baseados em duas partes:
+São baseados em duas partes:
 
 - Num **estado** que contém a informação necessária para prever qual efeito terá uma ação para determinar um certo
   objetivo.
@@ -179,9 +179,8 @@ print(bfs((0, 0), (2, 0)))
 
 ## Solução Ótima em problemas de Pesquisa em Espaço de Estados
 
-No exemplo anterior o objetivo era **exclusivamente** encontrar uma solução. No entanto, não foi considerado o **custo**
-das operações feitas para atingir o objetivo. Por vezes podemos atingir uma solução de maneiras diferentes e até mesmo
-com um **número menor de operações**.
+No exemplo anterior não foi considerado o **custo** das operações feitas para atingir o objetivo. Por vezes podemos
+atingir uma solução de maneiras diferentes e até mesmo com um **número menor de operações**.
 ![](Imagens/estados-5.png)
 
 Existem diversas estrátegias de pesquisa num espaço de estados, que estão normalmente divididas em 2 famílias:
@@ -202,24 +201,23 @@ Dentro desta categoria existem duas estratégias principais:
 - **Depth-First Search (DFS)**: explora os nós da árvore de estados em profundidade (primeiro nó a entrar é o último a
   sair).
 
+### Algoritmo
+
 Aqui contém um exemplo de pseudocódigo para a BFS/DFS:
 
 ```python
-Algorithm:
-1. cur_state = initial_state
-2. to_explore = []
-3. explored = []
-4. push(to_explore, cur_state)
-5. WHILE to_explore NOT EMPTY
-  1. cur = pop(to_explore)
-  2. if cur == goal_state
-     Return cur
-  3. suc = find_sucessors(cur)
-  4. for s in suc:
-  1. if s NOT IN explored AND s NOT IN to_explore
-     push(to_explore, s) # to_explore.insert(0, s) to DFS
-  5. push(explored, cur)
-  6. return None
+1. Declara o estado atual
+2. Declara a lista de estados a explorar
+3. Declara a lista de estados explorados
+4. Adiciona o estado atual à lista de estados a explorar
+5. Enquanto a lista de estados a explorar não estiver vazia
+  1. Extrai (para 'atual') e retira o primeiro estado da lista de estados a explorar
+  2. Se o estado 'atual' for o objetivo, retorna-o
+  3. Encontra os sucessores do estado atual
+  4. Para cada sucessor, verifica se já foi explorado ou se já está na lista dos estados por explorar
+    1. Adiciona o estado à lista de estados a explorar (no início no caso da DFS e no fim no caso da BFS)
+  5. Adiciona o estado atual à lista de estados explorados
+6. Se não encontrar nenhum estado objetivo, retorna Nulo
 ```
 
 ### Exercício
@@ -234,33 +232,31 @@ amanhã meto prometo
 
 ## Pesquisa Informada
 
-Uma das variantes mais comuns de pesquisa informada é a **pesquisa A<sup>*</sup>**. Esta é uma pesquisa informada que
-utiliza uma função que representa o **custo estimado** de atingir o objetivo a partir de um determinado estado 'g(x)' e
-uma função que avalia o quão perto estamos do objetivo 'h(x)'.
+Um exemplo é **pesquisa A<sup>*</sup>** que utiliza uma função que representa o **custo estimado** de atingir o objetivo
+a partir de um determinado estado 'g(x)' e uma função que avalia o quão perto estamos do objetivo 'h(x)'.
 Esta função é chamada **função de avaliação** sendo definida como:
 
 ```
 f(x) = g(x) + h(x)
 ```
 
+### Algoritmo
+
 Aqui contém um pseudocódigo para a pesquisa A<sup>*</sup>:
 
 ```python
-# Algoritmo
-1. cur_state = initial_state
-2. to_explore = []
-3. explored = []
-4. push(to_explore, cur_state)
-5. WHILE to_explore NOT EMPTY
-  1. cur = pop(to_explore)
-  2. if cur == goal_state
-     Return cur
-  3. suc = find_sucessors(cur)
-  4. for s in suc:
-    1. if s NOT IN explored AND s NOT IN to_explore
-       to_explore = insert(to_explore, s, f(s))
-  5. push(explored, cur)
-  6. return None
+1. Declara o estado atual
+2. Declara a lista de estados a explorar
+3. Declara a lista de estados explorados
+4. Adiciona o estado atual à lista de estados a explorar
+5. Enquanto a lista de estados a explorar não estiver vazia
+  1. Extrai (para 'atual') e retira o primeiro estado da lista de estados a explorar
+  2. Se o estado 'atual' for o objetivo retorna-o
+  3. Encontra os sucessores do estado atual
+  4. Para cada sucessor, ver se já foi explorado ou se já se encontra na lista dos estados por explorar
+    1. Se não estiverem na lista de estados a explorar nem na lista de estados explorados, adiciona o estado à lista de estados a explorar por ordem crescente de f(x)
+  5. Adiciona o estado atual à lista de estados explorados
+6. Se não encontrar nenhum estado objetivo, retorna Nulo
 ```
 
 ## Exercício
@@ -276,15 +272,13 @@ amanhã meto prometo
 
 ## Parte 3: Antagonistas
 
-Neste capítulo vamos falar sobre os **antagonistas**. Estes são os **agentes que tentam impedir o agente principal** de
-atingir o seu objetivo. Nesta pesquisa (muito utilizado em I.A. de jogos) o nosso agente terá de encontrar
-aquela que será a melhor solução para ele (máximização) e simultaneamente tentar impedir que o adversário encontre a
-melhor solução para ele (minimização).
+Estes são os **agentes que tentam impedir o agente principal** de atingir o seu objetivo. Nesta pesquisa (muito
+utilizado em I.A. de jogos) o nosso agente terá de encontrar aquela que será a melhor solução para ele (máximização) e
+simultaneamente tentar impedir que o adversário encontre a melhor solução para ele (minimização).
 
 ## Minimax
 
-Este é o algoritmo mais simples para a resolução de problemas de antagonistas. Este algoritmo é baseado na seguinte
-ideia:
+Este algoritmo é baseado na seguinte ideia:
 
 - A **raiz** é o nó que representa o estado atual do jogo.
 - Os dois jogadores são chamados **maximizador** e **minimizador**.
@@ -299,20 +293,16 @@ ideia:
 ### Algoritmo
 
 ```python
-# Chamada inicial: minimax(raiz, PROFUNDIDADE, True)
-function minimax( node, depth, maximizing_player):
-  if depth == 0 OR node is a terminal node
-    return f(node) # heurística do nó
-  if maximizing_player then: # Caso seja o maximizador a jogar
-    value = −∞
-    for each child of node do
-      value = max(value, minimax(child, depth − 1, FALSE))
-    return value
-  else: # Caso seja o minimizador a jogar
-    value = +∞
-    for each child of node do
-      value = min( value, minimax( child, depth − 1, TRUE ) )
-    return value
+1. Se a profundidade for 0 ou o nó for um nó terminal (folha), retorna o valor do nó
+2. Caso seja o maximizador a jogar, maximiza o valor
+   1. valor = -infinito
+   2. Para cada filho do nó
+     1. Máximo entre o valor e o valor do filho (agora a jogar é o minimizador)
+3. Caso seja o minimizador a jogar, minimiza o valor
+   1. valor = infinito
+   2. Para cada filho do nó
+     1. Mínimo entre o valor e o valor do filho (agora a jogar é o maximizador)
+4. Retorna o valor
 ```
 
 ### Exercício
@@ -343,26 +333,20 @@ seguinte ideia:
 ### Algoritmo
 
 ```python
-# Chamada inicial: minimax(raiz, PROFUNDIDADE, True, −∞, +∞)
-function minimax( node, depth, maximizing_player, alpha, beta):
-  if depth == 0 OR node is a terminal node
-    return f(node) #heuristic of “node”
-  if maximizing_player then
-    value = −∞
-    for each child of node do
-      value = max(value, minimax(child, depth − 1, FALSE, alpha, beta))
-      alpha = max(alpha, value)
-      if beta ≤ alpha
-        break
-    return value
-  else
-    value = +∞
-    for each child of node do
-      value = min(value, minimax( child, depth − 1, TRUE, alpha, beta) )
-      beta = min(beta, value)
-      if beta ≤ alpha
-        break
-    return value
+1. Se a profundidade for 0 ou o nó for um nó terminal (folha), retorna o valor do nó
+2. Caso seja o maximizador a jogar, maximiza o valor
+   1. valor = -infinito
+   2. Para cada filho do nó
+     1. Máximo entre o valor e o valor do filho (agora a jogar é o minimizador)
+     2. Alfa = Máximo entre o alfa e o valor
+     3. Se o valor for maior ou igual ao beta, corta a árvore
+3. Caso seja o minimizador a jogar, minimiza o valor
+    1. valor = infinito
+    2. Para cada filho do nó
+      1. Mínimo entre o valor e o valor do filho (agora a jogar é o maximizador)
+      2. Beta = Mínimo entre o beta e o valor
+      3. Se o valor for menor ou igual ao alfa, corta a árvore
+4. Retorna o valor
 ```
 
 ### Exercício
