@@ -121,12 +121,27 @@ Alguns conceitos a saber:
 - População: Conjunto de indivíduos.
 - Individuos: configuração de parametros que representa um estado.
 - Seleção: escolher os melhores indivíduos para reprodução.
+
+![](Imagens/otimizacao-16.png)
+
+*Fig.7: Representação de uma população*
+
 - Cruzamento: combinar os genes de dois indivíduos para gerar um novo indivíduo.
+
+![](Imagens/otimizacao-17.png)
+
+*Fig.8: Representação de um cruzamento*
+
 - Mutação: alterar aleatoriamente um gene de um indivíduo.
+
+![](Imagens/otimizacao-18.png)
+
+*Fig.9: Representação de uma mutação*
 
 #### Exercício
 
 Considere a seguinte população (t=0):
+
 ![](Imagens/otimizacao-15.png)
 
 Usando a seguinte seleção determine a nova população (t=1) e determina a função objetivo de ambas e determina qual tem o
