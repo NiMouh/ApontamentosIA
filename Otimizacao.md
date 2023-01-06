@@ -59,7 +59,10 @@ Na descida do gradiente (direção do gradiente), o objetivo é encontrar o mín
 
 Para isso, temos de calcular a derivada da mesma, determinar os seus zeros e mover-se conforme a direção do
 gradiente e o seu learning rate (taxa de aprendizagem/tamanho do passo feito).
+
 ![](Imagens/otimizacao-4.png)
+
+*Fig.4: Minimização pela descida do gradiente*
 
 A taxa de aprendizagem é um hiperparâmetro que controla o tamanho do passo feito, e deve ser ajustado para cada
 problema, pois:
@@ -68,6 +71,8 @@ problema, pois:
 - Se for muito grande, o algoritmo pode não convergir.
 
 ![](Imagens/otimizacao-5.png)
+
+*Fig.5: Implicações da taxa de aprendizagem*
 
 ### Programação Linear
 
@@ -78,17 +83,26 @@ Neste método de otimização, podemos resolver de duas formas:
 
 ![](Imagens/otimizacao-6.png)
 
+*Fig.6: Método gráfico*
+
 - Método de simplex: funciona bem quando temos muitos parâmetros (|θ| > 3). Este método é mais matemático, baseado
   numa tabela de valores, onde cada linha representa uma restrição, e cada coluna representa um parâmetro. Como o
   seguinte exemplo:
 
 ![](Imagens/otimizacao-7.png)
+
 ![](Imagens/otimizacao-8.png)
+
 ![](Imagens/otimizacao-9.png)
+
 ![](Imagens/otimizacao-10.png)
+
 ![](Imagens/otimizacao-11.png)
+
 ![](Imagens/otimizacao-12.png)
+
 ![](Imagens/otimizacao-13.png)
+
 ![](Imagens/otimizacao-14.png)
 
 ### Algoritmos de Genética
