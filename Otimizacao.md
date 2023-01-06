@@ -34,10 +34,14 @@ espaço de estados que considera viáveis usando restrições, evitando assim av
 
 Por exemplo, neste caso, podemos determinar que a função A é melhor que a função B, pois a sua previsão distancia-se
 menos do resultado espero que a outra solução, veja:
+
 ![](Imagens/otimizacao-1.png)
+
+*Fig.1: Comparação entre duas funções de previsão.*
 
 Também devemos considerar a complexidade de um problema (a sua convexidade), pois se o problema não for convexo, podem
 existir vários mínimos locais, e não apenas um mínimo global, veja:
+
 ![](Imagens/otimizacao-2.png)
 
 *Fig.2: Problema convexo vs não convexo*
@@ -91,19 +95,35 @@ Neste método de otimização, podemos resolver de duas formas:
 
 ![](Imagens/otimizacao-7.png)
 
+*Fig.7: Declaração da função objetivo e das restrições*
+
 ![](Imagens/otimizacao-8.png)
+
+*Fig.9: Conjunto de equações igualada a zero incluindo a variável slack*
 
 ![](Imagens/otimizacao-9.png)
 
+*Fig.10: Matriz de coeficientes*
+
 ![](Imagens/otimizacao-10.png)
+
+*Fig.11: Condensação da matriz de coeficientes 1*
 
 ![](Imagens/otimizacao-11.png)
 
+*Fig.12: Condensação da matriz de coeficientes 2*
+
 ![](Imagens/otimizacao-12.png)
+
+*Fig.13: Condensação da matriz de coeficientes 3*
 
 ![](Imagens/otimizacao-13.png)
 
+*Fig.14: Condensação da matriz de coeficientes 4*
+
 ![](Imagens/otimizacao-14.png)
+
+*Fig.15: Equação final tendo apenas os paramêtros como variáveis*
 
 ### Algoritmos de Genética
 
@@ -124,25 +144,27 @@ Alguns conceitos a saber:
 
 ![](Imagens/otimizacao-16.png)
 
-*Fig.7: Representação de uma população*
+*Fig.15: Representação de uma população*
 
 - Cruzamento: combinar os genes de dois indivíduos para gerar um novo indivíduo.
 
 ![](Imagens/otimizacao-17.png)
 
-*Fig.8: Representação de um cruzamento*
+*Fig.16: Representação de um cruzamento*
 
 - Mutação: alterar aleatoriamente um gene de um indivíduo.
 
 ![](Imagens/otimizacao-18.png)
 
-*Fig.9: Representação de uma mutação*
+*Fig.17: Representação de uma mutação*
 
 #### Exercício
 
 Considere a seguinte população (t=0):
 
 ![](Imagens/otimizacao-15.png)
+
+*Fig.18: População inicial*
 
 Usando a seguinte seleção determine a nova população (t=1) e determina a função objetivo de ambas e determina qual tem o
 valor maior:
