@@ -7,7 +7,7 @@ Para esta pesquisa local otima, existem 2 familias de métodos:
 
 - Métodos de construção: começam do zero e vão a construir uma solução iterativamente.
 - Métodos de reparação: começam num ponto aleatório (com bases periciais) e vão a ajustar os parametros e iterativamente
-  melhorar-los.
+  melhorá-los.
 
 Nota: Ultimamente, em ambos os casos, estes métodos usam apenas um único estado (estado atual), para antigir uma solução
 imperfeita para um problema de pesquisa.
