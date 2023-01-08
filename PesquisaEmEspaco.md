@@ -237,7 +237,7 @@ a partir de um determinado estado 'g(x)' e uma função que avalia o quão perto
 Esta função é chamada **função de avaliação** sendo definida como:
 
 ```
-f(x) = g(x) + h(x)
+f(x) = g(x) + h(x), onde g(x) é o custo do caminho e h(x) é o custo do estado
 ```
 
 ### Algoritmo
@@ -264,7 +264,27 @@ Aqui contém um pseudocódigo para a pesquisa A<sup>*</sup>:
 Através do seguinte gráfico e do algoritmo A<sup>*</sup> encontra o caminho mais curto entre o nó A e o nó H.
 ![](Imagens/estados-6.png)
 
-Resolução:
+#### Solução
+Explorados : [A]
+Por explorar : [B, K]
+
+-------------------------
+como f(B) = 2 + 7 = 9 e f(B) < f(K),
+
+Explorados : [A, B]
+
+Por explorar: [D, C, K, I, J]
+
+-------------------------
+como f(D) = 2 + 3 + 2 = 7 e f(D) < f(C) < f(K) < f(I) < f(J),
+
+Explorados : [A, B, D]
+
+Por explorar: [C, K, I, J, E, G]
+
+(Continuar por aqui)
+
+Resposta : A -> B -> D -> E -> H
 
 ```
 amanhã meto prometo
@@ -355,3 +375,5 @@ Considere a seguinte árvore e o algoritmo minimax com corte alfa-beta. Aplica o
 para encontrar o valor da raiz.
 
 ![](Imagens/estados-11.png)
+
+#### Solução

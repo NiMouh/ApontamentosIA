@@ -13,7 +13,7 @@ Sendo que θ1 é o parâmetro do modelo, e x é a variável independente.
 
 *Fig.1: Comparações entre modelos*
 
-### Função de custo
+## Função de custo
 
 A função de custo recebe os parâmetros do modelo e determinar o quão bem o modelo se ajusta aos dados. É ela que
 distingue os bons modelos dos maus.
@@ -24,13 +24,13 @@ Ela é definida como:
 
 *Fig.2: Função de custo, com o θ0 e o θ1 como os parâmetros do modelo*
 
-### Machine Learning: Otimização
+## Machine Learning: Otimização
 
 Nós obtemos os melhores valores possiveis minimizando a função de custo. Para isso, temos de calcular as derivadas
 parciais da mesma, determinar os seus zeros e através da descida do gradiente, mover-se conforme a direção do gradiente
 e o seu learning rate (taxa de aprendizagem/tamanho do passo feito).
 
-#### Exercicio da descida do gradiente
+### Exercicio da descida do gradiente
 
 Considere este pequeno dataset. Use a descida do gradiente para encontrar os melhores valores para θ0 e θ1.
 
@@ -64,4 +64,34 @@ No entanto, este aluno pode ter tido um dia mau, e tirar uma nota alta no resto 
 Para evitar estes erros, temos de ajustar o nosso modelo de modo que esses casos expecificos tenham alguma
 probabilidade de acontecer, através da função *Sigmoid*.
 
-**POR ACABAR O SLIDER 27**
+Como dito anteriormente, a função de custo vai medir o quão bem o modelo se ajusta aos dados. Por exemplo, se a resposta
+de um sistema é suposto devolve '1' e o nosso modelo devolve '1' então o custo será 0.
+
+## Setup Experimental
+
+Uma das regras de ouro do machine learning é que devemos sempre dividir o nosso dataset em três partes:
+
+- **Training set**: Usado para treinar o modelo.
+- **Validation set**: Dá-nos uma avaliação imparcial do desempenho do nosso modelo sendo também usado para ajustar os
+  parâmetros do modelo.
+- **Test set**: Dá-nos uma avaliação imparcial do desempenho do nosso modelo final.
+
+![](Imagens/machine-learning-5.png)
+
+*Fig.4: Divisão do dataset*
+
+No entanto, o nosso modelo não se pode ajustar demasiado/pouco ao dataset de treino, pois isso pode levar a um:
+
+- **Overfitting**: O modelo ajusta-se demasiado ao dataset de treino, e não consegue generalizar bem para outros
+  datasets.
+- **Underfitting**: O modelo não consegue ajustar-se bem ao dataset de treino, e não consegue generalizar bem para
+  outros datasets.
+
+Para avaliar o quão bem está o nosso modelo tem:
+
+- Accuracy(exactidão): número de exemplos corretamente classificados ((TP + TN) / (TP + TN + FP + FN)).
+- Precision(precisão): o quão proximo o modelo está de classificar um exemplo como positivo (TP/(TP+FP)).
+- Recall(sensibilidade): proporção de exemplos de output que foram detetados (TP/(TP+FN)).
+
+
+# Backpropagation Algorithm
