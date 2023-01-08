@@ -113,8 +113,23 @@ Pergunta 1: Definir regras das relações correspondentes:
 Pergunta 2: Usar dedução inversa para provar as seguintes afirmações:
 
 - *Mairi* é antepassado de *Ann*?
+Para utilizar a dedução inversa, você deve começar pelo resultado desejado e trabalhar de forma a determinar se as premissas fornecidas são suficientes para chegar a essa conclusão.
+
+Por exemplo, para provar a afirmação "mae(mairi,morgan)", você pode começar com a premissa "progenitor(A,B) AND feminino(A) → mae(A,B)" e a conclusão "mae(mairi,morgan)". Então, você deve verificar se os fatos "progenitor(mairi,morgan)" e "feminino(mairi)" são verdadeiros, o que é o caso. Portanto, a afirmação "mae(mairi,morgan)" é verdadeira.
+
+Da mesma forma, para provar a afirmação "avô(alasdair,albert)", você pode começar com a premissa "progenitor(A,B) AND progenitor(B,C) AND masculino(A) → avô(A,C)" e a conclusão "avô(alasdair,albert)". Então, você deve verificar se os fatos "progenitor(alasdair,hamish)" e "progenitor(hamish,albert)" são verdadeiros, o que é o caso. Além disso, o fato "masculino(alasdair)" também é verdadeiro. Portanto, a afirmação "avô(alasdair,albert)" é verdadeira.
 - Quais os filhos de *Jock*?
+Para determinar os filhos de Jock, você pode utilizar a regra "progenitor(A,B) AND masculino(A) → pai(A,B)", que afirma que A é o pai de B se A é o progenitor de B e é do sexo masculino.
+
+Usando essa regra, podemos ver que Jock é o pai de Morgan, Alasdair e Hamish, pois há os fatos "progenitor(jock,morgan)", "progenitor(jock,alasdair)" e "progenitor(jock,hamish)". Portanto, os filhos de Jock são Morgan, Alasdair e Hamish.
 - Quais os primos de *Flora*?
+Para determinar os primos de Flora, você precisa primeiro determinar os pais de Flora e, em seguida, os irmãos dos pais de Flora.
+
+Usando a regra "progenitor(A,B) AND masculino(A) → pai(A,B)", podemos ver que os pais de Flora são Fergus e Rhoda.
+
+Em seguida, para encontrar os irmãos dos pais de Flora, podemos usar a regra "progenitor(A,B) AND progenitor(C,B) AND A != C → irmão(A,C)". Se aplicarmos essa regra para os pais de Flora, encontramos os seguintes fatos: "progenitor(jock,fergus)" e "progenitor(rhoda,fergus)", o que nos diz que Jock e Rhoda são irmãos. Além disso, "progenitor(jock,rhoda)" e "progenitor(fergus,rhoda)", o que nos diz que Jock e Fergus são irmãos.
+
+Como os irmãos dos pais de Flora são os avós de Flora, isso significa que Morgan, Alasdair, Hamish e Flora são primos. Portanto, os primos de Flora são Morgan, Alasdair e Hamish.
 
 R: Façam FODA-SE!
 
