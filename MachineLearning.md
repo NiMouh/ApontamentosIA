@@ -93,5 +93,20 @@ Para avaliar o quão bem está o nosso modelo tem:
 - Precision(precisão): o quão proximo o modelo está de classificar um exemplo como positivo (TP/(TP+FP)).
 - Recall(sensibilidade): proporção de exemplos de output que foram detetados (TP/(TP+FN)).
 
+# Supervised learning vs Unsupervised learning
 
-# Backpropagation Algorithm
+**Supervised learning** é quando o conjunto de dados de treino inclui rótulos com as respostas corretas para cada
+exemplo no conjunto. O objetivo é usar os exemplos rotulados para prever as respostas para novos exemplos.
+
+**Unsupervised learning** é quando o conjunto de dados de treino não inclui rótulos. O objetivo é descobrir padrões nos
+dados.
+
+# Deep Learning
+
+Ao contrário do machine learning, o deep learning usa redes neurais profundas para resolver problemas, isto é, redes
+neurais com muitas camadas.
+
+## Redes Neurais Convolucionais (CNN)
+
+As redes neurais convolucionais são redes neurais profundas usadas para analisar imagens. Ao contrário das redes
+tradicionais (Feed-Foward), os neurónios de uma CNN estão organizados em três dimensões.
