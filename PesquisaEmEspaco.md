@@ -265,6 +265,7 @@ Através do seguinte gráfico e do algoritmo A<sup>*</sup> encontra o caminho ma
 ![](Imagens/estados-6.png)
 
 #### Solução
+
 Explorados : [A]
 Por explorar : [B, K]
 
@@ -285,10 +286,6 @@ Por explorar: [C, K, I, J, E, G]
 (Continuar por aqui)
 
 Resposta : A -> B -> D -> E -> H
-
-```
-amanhã meto prometo
-```
 
 ## Parte 3: Antagonistas
 
@@ -332,12 +329,6 @@ o jogador 2. O jogador 1 quer maximizar o valor e o jogador 2, quer minimizar o 
 encontrar o valor da raiz.
 
 ![](Imagens/estados-10.png)
-
-Resolução:
-
-```
-amanhã meto prometo
-```
 
 ## Alfa-Beta
 

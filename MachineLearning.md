@@ -110,3 +110,10 @@ neurais com muitas camadas.
 
 As redes neurais convolucionais são redes neurais profundas usadas para analisar imagens. Ao contrário das redes
 tradicionais (Feed-Foward), os neurónios de uma CNN estão organizados em três dimensões.
+
+# Auto-Encoding
+
+Os '**auto-encoders**' são redes neurais que aprendem a representação compacta de um conjunto de dados. Eles são
+compostos por uma encoder que codifica os dados numa representação de dimensão reduzida e um decoder que decodifica a
+codificação em um conjunto de dados de saída. Eles são usados para tarefas como compressão de dados, redução de
+dimensionalidade e aprendizado não supervisionado, e são comumente usados em conjunto com outras redes neurais.
