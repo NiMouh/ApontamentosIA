@@ -8,7 +8,7 @@ Os dois agentes IA mais gerais são:
   de modo inteligente e melhor que um ser humano, porém são inuteís em outras tarefas (Weak AI).
 
 
-- Artificial General Intelligence (AGI): São agentes que conseguem executar multiplas
+- Artificial General Intelligence (AGI): São agentes que conseguem executar e adaptar-se multiplas
   tarefas melhor que um ser humano (Strong AI).
 
 ## Representação de estados
@@ -181,6 +181,7 @@ print(bfs((0, 0), (2, 0)))
 
 No exemplo anterior não foi considerado o **custo** das operações feitas para atingir o objetivo. Por vezes podemos
 atingir uma solução de maneiras diferentes e até mesmo com um **número menor de operações**.
+
 ![](Imagens/estados-5.png)
 
 Existem diversas estrátegias de pesquisa num espaço de estados, que estão normalmente divididas em 2 famílias:
@@ -224,6 +225,7 @@ Aqui contém um exemplo de pseudocódigo para a BFS/DFS:
 
 Através do seguinte grafo e do algoritmo de BFS, escreve o caminho percorrido para chegar ao objetivo.
 ![](Imagens/estados-7.png)
+
 Resolução:
 
 ```
