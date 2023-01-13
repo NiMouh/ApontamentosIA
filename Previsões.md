@@ -97,3 +97,5 @@ Unsupervised learning é quando o conjunto de dados de treino não inclui rótul
         3. Se o valor for menor ou igual ao alfa, corta a árvore
     4. Retorna o valor
     ```
+
+CONSEGUIMOS!
