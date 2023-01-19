@@ -370,3 +370,5 @@ para encontrar o valor da raiz.
 ![](Imagens/estados-11.png)
 
 #### Solução
+
+![](Imagens/estados-12.png)
