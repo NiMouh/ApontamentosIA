@@ -190,28 +190,20 @@ def genetic_algorithm():
         # Variable that represents the second parent
         parent2 = population[pairs[i][1]]
 
-        # Child 1 will be the first part of the first parent and the second part of the second parent
-        child1 = []
-        child1.extend(parent1[:cut[i]])
-        child1.extend(parent2[cut[i]:])
+        # Child will be the first part of the first parent and the second part of the second parent
+        child = []
+        child.extend(parent1[:cut[i] + 1])
+        child.extend(parent2[cut[i] + 1:])
 
-        # Child 2 will be the first part of the second parent and the second part of the first parent
-        child2 = []
-        child2.extend(parent2[:cut[i]])
-        child2.extend(parent1[cut[i]:])
-        
         # In both childs, the index of the mutation will be changed (could be more than one)
         if type(mutation[i]) == list:
             for j in mutation[i]:
-                child1[j] = 1 - child1[j]
-                child2[j] = 1 - child2[j]
+                child[j] = 1 - child[j]
         else:
-            child1[mutation[i]] = 1 - child1[mutation[i]]
-            child2[mutation[i]] = 1 - child2[mutation[i]]
-            
+            child[mutation[i]] = 1 - child[mutation[i]]
+
         # Append the childs to the new population
-        new_population.append(child1)
-        new_population.append(child2)
+        new_population.append(child)
 ```
 
 #### Exercício
@@ -238,5 +230,5 @@ Resolução parcial:
 
 1. O individio 1 corresponde a: [1,0,0,0,1,1]
 2. O individio 5 corresponde a: [0,1,0,1,0,1]
-3. O cruzamento entre eles, na posição 1, dará origem a 2 novos individuos: [1,0,0,1,0,1] e [0,1,0,0,1,1]
-4. Porém, com a mutação na posição 0, os novos individuos serão: [0,0,0,1,0,1] e [1,1,0,0,1,1]
+3. O cruzamento entre eles, na posição 1, dará origem a 2 novos individuos: [1,0,0,1,0,1]
+4. Porém, com a mutação na posição 0, os novos individuos serão: [0,0,0,1,0,1]
