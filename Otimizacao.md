@@ -158,6 +158,62 @@ Alguns conceitos a saber:
 
 *Fig.17: Representação de uma mutação*
 
+Algoritmo de genética em python:
+```python
+# Genetics Algorithm
+
+# Variable that represents the initial population
+population = [[1, 0, 1, 1, 1, 1], [1, 0, 0, 0, 1, 1],
+              [0, 1, 1, 0, 1, 0], [1, 0, 0, 0, 0, 1],
+              [1, 0, 1, 0, 1, 0], [0, 1, 0, 1, 0, 1]]
+
+# Variable that represents the pairs that will be crossed
+pairs = [[0, 3], [1, 5], [0, 1], [4, 3], [0, 2], [2, 4]]
+
+# Variable that represents the position were the cut will be made
+cut = [2, 1, 3, 2, 4, 2]
+
+# Variable that represents what elements will be mutated
+mutation = [1, 0, [1, 2], [4, 5], 3, 2]
+
+
+# Function that makes the genetic algorithm
+def genetic_algorithm():
+    # Variable that represents the new population
+    new_population = []
+
+    # For each pair
+    for i in range(len(pairs)):
+        # Variable that represents the first parent
+        parent1 = population[pairs[i][0]]
+
+        # Variable that represents the second parent
+        parent2 = population[pairs[i][1]]
+
+        # Child 1 will be the first part of the first parent and the second part of the second parent
+        child1 = []
+        child1.extend(parent1[:cut[i]])
+        child1.extend(parent2[cut[i]:])
+
+        # Child 2 will be the first part of the second parent and the second part of the first parent
+        child2 = []
+        child2.extend(parent2[:cut[i]])
+        child2.extend(parent1[cut[i]:])
+        
+        # In both childs, the index of the mutation will be changed (could be more than one)
+        if type(mutation[i]) == list:
+            for j in mutation[i]:
+                child1[j] = 1 - child1[j]
+                child2[j] = 1 - child2[j]
+        else:
+            child1[mutation[i]] = 1 - child1[mutation[i]]
+            child2[mutation[i]] = 1 - child2[mutation[i]]
+            
+        # Append the childs to the new population
+        new_population.append(child1)
+        new_population.append(child2)
+```
+
 #### Exercício
 
 Considere a seguinte população (t=0):
