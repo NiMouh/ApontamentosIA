@@ -174,7 +174,7 @@ pairs = [[0, 3], [1, 5], [0, 1], [4, 3], [0, 2], [2, 4]]
 cut = [2, 1, 3, 2, 4, 2]
 
 # Variable that represents what elements will be mutated
-mutation = [1, 0, [1, 2], [4, 5], 3, 2]
+mutation = [[1], [0], [1, 2], [4, 5], [3], [2]]
 
 
 # Function that makes the genetic algorithm
@@ -194,13 +194,10 @@ def genetic_algorithm():
         child = []
         child.extend(parent1[:cut[i] + 1])
         child.extend(parent2[cut[i] + 1:])
-
-        # In both childs, the index of the mutation will be changed (could be more than one)
-        if type(mutation[i]) == list:
-            for j in mutation[i]:
-                child[j] = 1 - child[j]
-        else:
-            child[mutation[i]] = 1 - child[mutation[i]]
+        
+        # Each element that will be mutated, change the value
+        for j in mutation[i]:
+            child[j] = 1 - child[j]
 
         # Append the childs to the new population
         new_population.append(child)
