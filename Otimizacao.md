@@ -191,11 +191,9 @@ def genetic_algorithm():
         parent2 = population[pairs[i][1]]
 
         # Child will be the first part of the first parent and the second part of the second parent
-        child = []
-        child.extend(parent1[:cut[i] + 1])
-        child.extend(parent2[cut[i] + 1:])
-        
-        # Each element that will be mutated, change the value
+        child = parent1[:cut[i] + 1] + parent2[cut[i] + 1:]
+
+        # For each element that will be mutated, change the value
         for j in mutation[i]:
             child[j] = 1 - child[j]
 
